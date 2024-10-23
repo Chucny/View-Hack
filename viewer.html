@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>View Hack</title> 
+<script> 
+document.addEventListener('DOMContentLoaded', function() { 
+// Set the URL you want to display in all iframes
+const iframeUrl = "https://www.example.com"; 
+// Change this to your desired URL 
+const iframeCount = 40; 
+// Total number of iframes 
+let loadedCount = 0; 
+// Counter for loaded iframes 
+// Create the iframes and append them to the body 
+const iframeContainer = document.getElementById('iframe-container'); 
+for (let i = 0; i < iframeCount; i++) { 
+const iframe = document.createElement('iframe'); 
+iframe.src = iframeUrl; iframe.style.width = "50px"; 
+// Set the width of the iframe (adjust as needed) 
+iframe.style.height = "50px"; 
+// Set the height of the iframe (adjust as needed) 
+iframe.style.margin = "10px"; 
+// Add some spacing between iframes 
+// Add an event listener to track when each iframe has loaded 
+iframe.addEventListener('load', function() { loadedCount++; if (loadedCount === iframeCount) { 
+// When all iframes have loaded, reload the page 
+location.reload(); } }); iframeContainer.appendChild(iframe); } }); </script> </head> <body> <big style="color:grey;font-size:16px;">View hack</big> <div id="iframe-container" style="display: flex; flex-wrap: wrap;"></div> </body> </html>
